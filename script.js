@@ -5,6 +5,7 @@ const usedColors = document.querySelector(".used-colors");
 const buttonSave = document.querySelector(".button-save");
 const colResize = document.querySelector(".resize");
 const main = document.querySelector("main");
+const aside = document.getElementById("lado");
 
 const MIN_CANVAS_SIZES = 4;
 
@@ -75,9 +76,11 @@ const resizeCanvas = (cursorPositionX) => {
 
     const canvasOffset = canvas.getBoundingClientRect().left;
     const width = `${cursorPositionX - canvasOffset - 20}px`;
+    const asideHeight = `${cursorPositionX - canvasOffset}px`;
 
     canvas.style.maxWidth = width;
     colResize.style.height = width;
+    aside.style.height = asideHeight;
 };
 
 const saveCanvas = () => {
