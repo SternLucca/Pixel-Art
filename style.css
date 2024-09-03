@@ -134,3 +134,33 @@ aside{
     margin-top: 20px;
     cursor: col-resize;
 }
+.rename{
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 30%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    border: 2px black solid;
+    border-radius: 10px;
+}
+.rename-title{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.rename-input{
+    border: 1px black solid;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #212121;
+    outline: none;
+    width: 180px;
+}
