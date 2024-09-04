@@ -10,6 +10,7 @@ const rename = document.querySelector(".rename");
 const renameInput = document.querySelector(".rename-input");
 const renameSave = document.querySelector(".save");
 const closeButton = document.getElementById("close");
+const erase = document.getElementById("erase");
 let canvasName = "";
 
 const MIN_CANVAS_SIZES = 4;
@@ -86,6 +87,15 @@ const changeColor = () => {
     }
 };
 
+const startWhite = () => {
+    const button = createElement("button", "button-color");
+    button.style.backgroundColor = "white";
+    button.addEventListener("click", () => {
+        inputColor.value = "#ffffff"
+    });
+    usedColors.append(button);
+};
+
 const resizeCanvas = (cursorPositionX) => {
     if (!isResizing) return;
 
@@ -127,4 +137,6 @@ main.addEventListener("mouseup", () => (isResizing = false));
 main.addEventListener("mousemove", ({clientX}) => resizeCanvas(clientX));
 
 buttonSave.addEventListener("click", showRename);
+erase.addEventListener("click", loadCanvas);
 loadCanvas();
+startWhite();
