@@ -9,7 +9,7 @@ const aside = document.getElementById("lado");
 const rename = document.querySelector(".rename");
 const renameInput = document.querySelector(".rename-input");
 const renameSave = document.querySelector(".save");
-let canvasName = "";
+let canvasName = "pixel-art";
 
 const MIN_CANVAS_SIZES = 4;
 
