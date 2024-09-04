@@ -6,6 +6,10 @@ const buttonSave = document.querySelector(".button-save");
 const colResize = document.querySelector(".resize");
 const main = document.querySelector("main");
 const aside = document.getElementById("lado");
+const rename = document.querySelector(".rename");
+const renameInput = document.querySelector(".rename-input");
+const renameSave = document.querySelector(".save");
+let canvasName = "";
 
 const MIN_CANVAS_SIZES = 4;
 
@@ -31,6 +35,12 @@ const createPixel = () => {
     });
 
     return pixel;
+};
+
+const showRename = () => {
+    rename.style.display = "flex";
+    main.style.filter = "blur(10px)";
+    renameSave.addEventListener("click", saveCanvas);
 };
 
 const loadCanvas = () => {
@@ -84,17 +94,20 @@ const resizeCanvas = (cursorPositionX) => {
 };
 
 const saveCanvas = () => {
+    canvasName = renameInput.value;
     html2canvas(canvas, {
         onrendered: (image) => {
             const img = image.toDataURL("image/png");
             const link = createElement("a");
 
             link.href = img;
-            link.download = "pixel-art.png";
+            link.download = `${canvasName}.png`;
 
             link.click();
         }
     });
+    rename.style.display = "none";
+    main.style.filter = "none";
 };
 
 canvas.addEventListener("mousedown", () => (isPainting = true));
@@ -108,5 +121,5 @@ colResize.addEventListener("mousedown", () => (isResizing = true));
 main.addEventListener("mouseup", () => (isResizing = false));
 main.addEventListener("mousemove", ({clientX}) => resizeCanvas(clientX));
 
-buttonSave.addEventListener("click", saveCanvas);
+buttonSave.addEventListener("click", showRename);
 loadCanvas();
