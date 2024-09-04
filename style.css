@@ -177,3 +177,19 @@ aside{
 .save:hover{
     background-color: #ebebeb;
 }
+#close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+    background-color: #ebebeb;
+    border-radius: 100%;
+    cursor: pointer;
+}
+#close:hover{
+    background-color: #dadada;
+}

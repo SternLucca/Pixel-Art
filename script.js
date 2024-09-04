@@ -9,7 +9,8 @@ const aside = document.getElementById("lado");
 const rename = document.querySelector(".rename");
 const renameInput = document.querySelector(".rename-input");
 const renameSave = document.querySelector(".save");
-let canvasName = "pixel-art";
+const closeButton = document.getElementById("close");
+let canvasName = "";
 
 const MIN_CANVAS_SIZES = 4;
 
@@ -41,6 +42,10 @@ const showRename = () => {
     rename.style.display = "flex";
     main.style.filter = "blur(10px)";
     renameSave.addEventListener("click", saveCanvas);
+    closeButton.addEventListener("click", () => {
+        rename.style.display = "none";
+        main.style.filter = "none";        
+    });
 };
 
 const loadCanvas = () => {
